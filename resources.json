@@ -1,9 +1,3 @@
-# ai-ed.github.io
-# AI Education Resources
-
-Static JSON Database for Resources:
-
-```json
 [
     {
         "name":         "ChatGPT",
@@ -13,14 +7,12 @@ Static JSON Database for Resources:
         "released":     "30-10-2022",
         "link":         "https://chat.openai.com/"
     },
+    {
+        "name":         "DALL-E",
+	"affiliated":	"OpenAI",
+        "blurb":        "An image generation application by OpenAI.",
+        "description":  "An image generation application by OpenAI.",
+        "released":     "---04-2022",
+	"link":		"https://labs.openai.com/"
+    }
 ]
-```
-
-Which is an array of JavaScript Objects containing the following fields:
-
-- name
-- affiliated
-- blurb
-- description
-- released (DD-MM-YYYY)
-- link
