@@ -1,6 +1,6 @@
 [
     {
-        "name":         "ChatGPT",
+    "name":         "ChatGPT",
 	"affiliation":	"OpenAI",
 	"date":		[ 2022, 10 ],
 	"tags": [
@@ -15,7 +15,7 @@
         "description":  "An online chat application utilizing OpenAI's GPT large language model (LLM) to understand user inputs and generate outputs."
     },
     {
-        "name":         "DALL-E",
+    "name":         "DALL-E",
 	"affiliated":	"OpenAI",
 	"date":		[ 2022, 4 ],
 	"tags": [
