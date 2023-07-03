@@ -5,15 +5,22 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="root.css" />
-		<link rel="icon" type="image/svg" href="ai-ed.svg" />
+		<link rel="stylesheet" href="static/ai-ed.css" />
+		<link rel="icon" type="image/svg" href="static/ai-ed.svg" />
 		<meta name="charset" content="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script type="module" src="directory.js"></script>
+		<script type="module" src="src/directory.js"></script>
 	</head>
 	<body>
-		<section class="ai-ed">
-			<h2 class="ai-ed">Under construction.</h2>
+		<section>
+			<label for="sort-by">Sort by</label>
+			<select name="sort-by" id="sort-by">
+				<option value="newest">Newest</option>
+				<option value="oldest">Oldest</option>
+				<option value="name">Name</option>
+			</select>
+			<div id="tags"></div>
+			<table id="resources"></table>
 		</section>
 	</body>
 </html>

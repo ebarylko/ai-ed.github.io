@@ -1,18 +1,31 @@
 [
     {
         "name":         "ChatGPT",
-        "affiliated":	"OpenAI",
+	"affiliation":	"OpenAI",
+	"date":		[ 2022, 10 ],
+	"tags": [
+		"Chat",
+		"General",
+		"Research",
+		"Students",
+		"Teachers"
+	],
+        "link":         "https://chat.openai.com/",
         "blurb":        "A chat application using OpenAI's GPT LLM.",
-        "description":  "An online chat application utilizing OpenAI's GPT large language model (LLM) to understand user inputs and generate outputs.",
-        "released":     "30-10-2022",
-        "link":         "https://chat.openai.com/"
+        "description":  "An online chat application utilizing OpenAI's GPT large language model (LLM) to understand user inputs and generate outputs."
     },
     {
         "name":         "DALL-E",
 	"affiliated":	"OpenAI",
+	"date":		[ 2022, 4 ],
+	"tags": [
+		"General",
+		"Research",
+		"Students",
+		"Teachers"
+	],
+	"link":		"https://labs.openai.com/",
         "blurb":        "An image generation application by OpenAI.",
-        "description":  "An image generation application by OpenAI.",
-        "released":     "---04-2022",
-	"link":		"https://labs.openai.com/"
+        "description":  "An image generation application by OpenAI."
     }
 ]

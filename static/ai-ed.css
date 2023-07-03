@@ -1,7 +1,9 @@
 :root {
 	--fg: #181818;
 	--bg: #f8f8f8;
+	--mg: #8080a0;
 	--lt: #e0e0f0;
+	--ds: #e0e0e0;
 	--br: #e8e8ff;
 }
 body {
@@ -114,4 +116,30 @@ p.ai-ed {
 	margin: 32px 0;
 	text-indent: 32px;
 	font-size: 16pt;
+}
+table td, th {
+	text-align: left;
+	padding: 8px;
+}
+table tr {
+	border-bottom: 2px solid var(--mg);
+}
+span.tag, span.tag-btn {
+	display: inline-block;
+	margin: 0 4px;
+	border: 1px solid var(--fg);
+	border-radius: 12px;
+	padding: 4px 6px;
+	height: 12px;
+	line-height: 12px;
+	font-size: 12pt;
+	font-weight: 300;
+}
+span.tag-btn:hover {
+	cursor: pointer;
+}
+span.tag-btn.disabled {
+	background-color: var(--ds);
+	color: var(--fg);
+	text-decoration: line-through;
 }
