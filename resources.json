@@ -1,11 +1,10 @@
 [
     {
-    "name":         "ChatGPT",
+	"name":		"ChatGPT",
 	"affiliation":	"OpenAI",
 	"date":		[ 2022, 10 ],
 	"tags": [
 		"Chat",
-		"General",
 		"Research",
 		"Students",
 		"Teachers"
@@ -15,11 +14,10 @@
         "description":  "An online chat application utilizing OpenAI's GPT large language model (LLM) to understand user inputs and generate outputs."
     },
     {
-    "name":         "DALL-E",
+	"name":		"DALL-E",
 	"affiliated":	"OpenAI",
 	"date":		[ 2022, 4 ],
 	"tags": [
-		"General",
 		"Research",
 		"Students",
 		"Teachers"
@@ -27,5 +25,18 @@
 	"link":		"https://labs.openai.com/",
         "blurb":        "An image generation application by OpenAI.",
         "description":  "An image generation application by OpenAI."
+    },
+    {
+	"name":		"Research Rabbit",
+	"affiliated":	"Research Rabbit",
+	"date":		[ 2021, 8 ],
+	"tags": [
+		"Research",
+		"Students",
+		"Teachers"
+	],
+	"link":	"https://www.researchrabbit.ai/",
+	"blurb": "Uses AI to suggest papers to researchers.",
+	"description": "ResearchRabbit is an innovative “citation-based literature mapping tool” available online. The scope of such a tool is to optimize your time searching for references as you start planning your essay, minor project, or literature review."
     }
 ]
