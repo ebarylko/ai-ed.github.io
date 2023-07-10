@@ -1,126 +1,128 @@
 [
     {
-    "name":		"ChatGPT",
-    "affiliation":	"OpenAI",
-    "date":		[ 2022, 10 ],
-    "tags": ["Chat", "Research", "Students", "Teachers"],
-    "link":         "https://chat.openai.com/",
-    "blurb":        "A chat application using OpenAI's GPT LLM.",
-    "description":  "An online chat application utilizing OpenAI's GPT large language model (LLM) to understand user inputs and generate outputs."
-},
-    {
-    "name":		"DALL-E",
-    "affiliated":	"OpenAI",
-    "date":		[ 2022, 4 ],
-    "tags": ["Research", "Students", "Teachers"],
-    "link":		"https://labs.openai.com/",
-    "blurb":        "An image generation application by OpenAI.",
-    "description":  "An image generation application by OpenAI."
-},
-    {
-    "name":		"Research Rabbit",
-    "affiliated":	"Research Rabbit",
-    "date":		[ 2021, 8 ],
-    "tags": ["Research", "Students", "Teachers"],
-    "link":	"https://www.researchrabbit.ai/",
-    "blurb": "Uses AI to suggest papers to researchers.",
-    "description": "ResearchRabbit is an innovative “citation-based literature mapping tool” available online. The scope of such a tool is to optimize your time searching for references as you start planning your essay, minor project, or literature review."
-},
-    {
-    "name": "Elicit",
-    "affiliated": "Ought",
-    "date": [2021, 7],
-    "tags": ["Research", "Students", "Teachers"],
-    "link": "https://elicit.org/",
-    "blurb": "Uses AI to gather insights from research literature",
-    "description": "Elicit is an AI research assistant that helps you gather insights from across the research literature. It uses language models to help you automate research workflows, like parts of literature review."
-},
-    {
-    "name": "Scholarcy",
-    "affiliated": "Scholarcy",
-    "date": [2018, 7],
-    "tags": ["Research", "Students", "Teachers"],
-    "link": "https://www.scholarcy.com/",
-    "blurb": "AI-powered article summarizer",
-    "description": "Scholarcy is an online article summarizer tool that reads your research articles, reports and book chapters in seconds and breaks them down into bite-sized sections."
-},
-    {
-    "name": "Quillbot",
-    "affiliated": "Quillbot",
-    "date": [2017, 7],
-    "tags": ["Research", "Students", "Teachers"],
-    "link": "https://quillbot.com/",
-    "blurb": "AI-powered writing platform that helps with the drafting process and elevates your writing",
-    "description": "Quillbot is an AI-powered tool which brings a paraphraser, grammar checker, summarizer, citation generator, co-writer, and plagiarism checker to assist you in writing."
-},
-    {
-    "name": "Grammarly",
-    "affiliated": "Grammarly",
-    "date": [2018, 7],
-    "tags": ["Students", "Teachers"],
-    "link": "https://www.grammarly.com/",
-    "blurb": "AI-powered writing assistant",
-    "description": "Grammarly is an AI-powered writing assistant that can help users with a variety of tasks, including brainstorming, revision, and citations."
-},
-    {
-    "name": "ChatPDF",
-    "affiliated": "ChatPDF",
-    "date": [2023, 4],
-    "tags": ["Students", "Teachers", "Research"],
-    "link": "https://www.chatpdf.com/",
-    "blurb": "AI-powered pdf analyzer",
-    "description": "ChatPDF is an AI-powered tool which analyzes a given PDF and answers any questions the user has about the pdf using ChatGPT"
-},
-    {
-    "name": "AskYourPDF " ,
-    "affiliated": "OpenAI",
-    "date": [2023, 5],
-    "tags": ["Students", "Teachers", "Research"],
-    "link": "https://askyourpdf.com/",
-    "blurb": "AI-powered pdf analyzer",
-    "description": "AskYourPDF is an innovative platform that leverages the power of GPT-4 to seamlessly transform any PDF into responsive and intelligent conversational partners. "},
-    {
-    "name": "Revision.ai" ,
-    "affiliated": "Revision.ai",
-    "date": [2023, 5],
-    "tags": ["Students"],
-    "link": "https://www.revision.ai/",
-    "blurb": "AI-powered flashcard generator",
-    "description": "Revision.ai is an adapts to your lectures and shows you the best flashcards to increase your memory"
+        "name": "ChatGPT",
+        "affiliated": "OpenAI",
+        "date": [2022, 10],
+        "tags": ["Chat", "Research", "Students", "Teachers"],
+        "link": "https://chat.openai.com/",
+        "blurb": "A chat application using OpenAI's GPT LLM.",
+        "description": "An online chat application utilizing OpenAI's GPT large language model (LLM) to understand user inputs and generate outputs."
     },
     {
-    "name": "Speechify" ,
-    "affiliated": "Speechify",
-    "date": [2016, 5],
-    "tags": ["Students"],
-    "link": "https://speechify.com/?via=stones&source=fb-for-mobile&landing_url=https%3A%2F%2Fspeechify.com%2Fabout%2F&gclid=Cj0KCQjwtamlBhD3ARIsAARoaEy9o7RRuBY15QWs0xuMvBGQcDAK5GAyJ_o3Whs2fO08e-tiJbmFA1QaAiOAEALw_wcB",
-    "blurb": "AI-powered text to speech reader",
-    "description": "Speechify is an AI text-to-speech reader that can power through docs, articles, PDFs, email, and anything you read by listening with their leading AI text-to-speech reader"
+        "name": "DALL-E",
+        "affiliated": "OpenAI",
+        "date": [ 2022, 4 ],
+        "tags": ["Research", "Students", "Teachers"],
+        "link": "https://labs.openai.com/",
+        "blurb": "An image generation application by OpenAI.",
+        "description": "An image generation application by OpenAI."
     },
     {
-    "name": "Otter.ai" ,
-    "affiliated": "Otter.ai",
-    "date": [2016, 5],
-    "tags": ["Students"],
-    "link": "https://otter.ai/",
-    "blurb": "AI-powered speech transcriber",
-    "description": "Otter.ai is an AI tool for real-time audio transcription."
+        "name": "Research Rabbit",
+        "affiliated": "Research Rabbit",
+        "date": [ 2021, 8 ],
+        "tags": ["Research", "Students", "Teachers"],
+        "link": "https://www.researchrabbit.ai/",
+        "blurb": "Uses AI to suggest papers to researchers.",
+        "description": "ResearchRabbit is an innovative “citation-based literature mapping tool” available online. The scope of such a tool is to optimize your time searching for references as you start planning your essay, minor project, or literature review."
     },
     {
-    "name": "PDF.ai" ,
-    "affiliated": "PDF.ai",
-    "date": [2016, 5],
-    "tags": ["Students", "Research", "Teachers"],
-    "link": "https://pdf.ai/",
-    "blurb": "AI-powered pdf analyzer",
-    "description": "PDF.ai uses GPT-3.5 to analyze documents and then respond to any questions the user has about the document."
+        "name": "Elicit",
+        "affiliated": "Ought",
+        "date": [2021, 7],
+        "tags": ["Research", "Students", "Teachers"],
+        "link": "https://elicit.org/",
+        "blurb": "Uses AI to gather insights from research literature",
+        "description": "Elicit is an AI research assistant that helps you gather insights from across the research literature. It uses language models to help you automate research workflows, like parts of literature review."
     },
     {
-    "name": "Notion AI" ,
-    "affiliated": "Notion AI",
-    "date": [2022, 11],
-    "tags": ["Students", "Research", "Teachers"],
-    "link": "https://www.notion.so/blog/introducing-notion-ai",
-    "blurb": "AI-powered tool which helps you take notes and revise your writing",
-    "description": "Notion AI gives users tools to help them improve their writing and to take notes using AI."
-    }]
+        "name": "Scholarcy",
+        "affiliated": "Scholarcy",
+        "date": [2018, 7],
+        "tags": ["Research", "Students", "Teachers"],
+        "link": "https://www.scholarcy.com/",
+        "blurb": "AI-powered article summarizer",
+        "description": "Scholarcy is an online article summarizer tool that reads your research articles, reports and book chapters in seconds and breaks them down into bite-sized sections."
+    },
+    {
+        "name": "Quillbot",
+        "affiliated": "Quillbot",
+        "date": [2017, 7],
+        "tags": ["Research", "Students", "Teachers"],
+        "link": "https://quillbot.com/",
+        "blurb": "AI-powered writing platform that helps with the drafting process and elevates your writing",
+        "description": "Quillbot is an AI-powered tool which brings a paraphraser, grammar checker, summarizer, citation generator, co-writer, and plagiarism checker to assist you in writing."
+    },
+    {
+        "name": "Grammarly",
+        "affiliated": "Grammarly",
+        "date": [2018, 7],
+        "tags": ["Students", "Teachers"],
+        "link": "https://www.grammarly.com/",
+        "blurb": "AI-powered writing assistant",
+        "description": "Grammarly is an AI-powered writing assistant that can help users with a variety of tasks, including brainstorming, revision, and citations."
+    },
+    {
+        "name": "ChatPDF",
+        "affiliated": "ChatPDF",
+        "date": [2023, 4],
+        "tags": ["Students", "Teachers", "Research"],
+        "link": "https://www.chatpdf.com/",
+        "blurb": "AI-powered pdf analyzer",
+        "description": "ChatPDF is an AI-powered tool which analyzes a given PDF and answers any questions the user has about the pdf using ChatGPT"
+    },
+    {
+        "name": "AskYourPDF " ,
+        "affiliated": "OpenAI",
+        "date": [2023, 5],
+        "tags": ["Students", "Teachers", "Research"],
+        "link": "https://askyourpdf.com/",
+        "blurb": "AI-powered pdf analyzer",
+        "description": "AskYourPDF is an innovative platform that leverages the power of GPT-4 to seamlessly transform any PDF into responsive and intelligent conversational partners."
+    },
+    {
+        "name": "Revision.ai" ,
+        "affiliated": "Revision.ai",
+        "date": [2023, 5],
+        "tags": ["Students"],
+        "link": "https://www.revision.ai/",
+        "blurb": "AI-powered flashcard generator",
+        "description": "Revision.ai is an adapts to your lectures and shows you the best flashcards to increase your memory"
+    },
+    {
+        "name": "Speechify" ,
+        "affiliated": "Speechify",
+        "date": [2016, 5],
+        "tags": ["Students"],
+        "link": "https://speechify.com/?via=stones&source=fb-for-mobile&landing_url=https%3A%2F%2Fspeechify.com%2Fabout%2F&gclid=Cj0KCQjwtamlBhD3ARIsAARoaEy9o7RRuBY15QWs0xuMvBGQcDAK5GAyJ_o3Whs2fO08e-tiJbmFA1QaAiOAEALw_wcB",
+        "blurb": "AI-powered text to speech reader",
+        "description": "Speechify is an AI text-to-speech reader that can power through docs, articles, PDFs, email, and anything you read by listening with their leading AI text-to-speech reader"
+    },
+    {
+        "name": "Otter.ai" ,
+        "affiliated": "Otter.ai",
+        "date": [2016, 5],
+        "tags": ["Students"],
+        "link": "https://otter.ai/",
+        "blurb": "AI-powered speech transcriber",
+        "description": "Otter.ai is an AI tool for real-time audio transcription."
+    },
+    {
+        "name": "PDF.ai" ,
+        "affiliated": "PDF.ai",
+        "date": [2016, 5],
+        "tags": ["Students", "Research", "Teachers"],
+        "link": "https://pdf.ai/",
+        "blurb": "AI-powered pdf analyzer",
+        "description": "PDF.ai uses GPT-3.5 to analyze documents and then respond to any questions the user has about the document."
+    },
+    {
+        "name": "Notion AI" ,
+        "affiliated": "Notion AI",
+        "date": [2022, 11],
+        "tags": ["Students", "Research", "Teachers"],
+        "link": "https://www.notion.so/blog/introducing-notion-ai",
+        "blurb": "AI-powered tool which helps you take notes and revise your writing",
+        "description": "Notion AI gives users tools to help them improve their writing and to take notes using AI."
+    }
+]

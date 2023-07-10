@@ -14,6 +14,7 @@ const MONTHS = [
 	"November",
 	"December"
 ];
+/* Headers for a table of resources
 const HEADERS = `
 	<tr>
 		<th>Name</th>
@@ -23,34 +24,54 @@ const HEADERS = `
 		<th>Access</th>
 	</tr>
 `;
+*/
+
+function getcol(seed) {
+	const sz = 64;
+	let cols = [0, 0, 0];
+
+	for (let i = 0, j = 0; i < 3; i++) {
+		// 0x1f is the lower 5 bits of seed[j]; value is 0..63
+		cols[i] = 0xdf + 2*(seed.charCodeAt(j++) & 0x1f) - 32;
+	}
+
+	let col = "#";
+
+	for (const c of cols)
+		col += c.toString(16);
+
+	return col;
+}
 
 // res: array of resources
 // to see what a resource object contains, see resources.json
 
-// first finds the resources class (i.e <table>)
-// adds the header inside that table
-// goes through every resource, creates a span class for each tag of the resources
-// generates html for each resource and appends it to the table.
+// first finds the element to store resources (i.e <table>)
+// appends a resource element to this collection for every resource in res
 
 function populate(res) {
-
-	let table = document.getElementById("resources");
-	table.innerHTML = HEADERS;
+	document.getElementById("info").innerHTML = `<p class="info">${res.length} resources loaded.</p>`;
+	let flex = document.getElementById("resources");
+	// reset innerHTML of flex container
+	flex.innerHTML = "";
 
 	for (const r of res) {
-
 		let tags = "";
 		for (const t of r.tags)
 			tags += `<span class="tag">${t}</span>`;
 
-		table.innerHTML += `
-			<tr>
-				<td>${r.name}</td>
-				<td>${r.affiliated}</td>
-				<td style="max-width: 256px;">${tags}</td>
-				<td>${MONTHS[r.date[1] - 1]} ${r.date[0]}</td>
-				<td><a href="${r.link}">${r.name} &nearr;</a></td>
-			</tr>
+		flex.innerHTML += `
+			<div class="resource" style="background-color: ${getcol(r.name)};">
+				<h1>${r.name}</h1>
+				${
+					r.affiliated == r.name ? "" :
+					"<h2>" + r.affiliated + "</h2>"
+				}
+				<h3>${MONTHS[r.date[1] - 1]} ${r.date[0]}</h3>
+				<p>${r.blurb}</p>
+				<p>${tags}</p>
+				<a href="${r.link}">${r.name} &nearr;</a>
+			</div>
 		`;
 	}
 }
@@ -59,33 +80,40 @@ let resources;
 
 // map of all tags
 // each entry in map looks like [tag, state]
-let tag_disabled = new Map();
+let tag_enabled = new Map();
 
 // sort_mode: modes (case-sensitive; modes are lowercase):
 // newest, oldest, name (alphabetical)
 let sort_mode = "newest";
 
-
 function filterResources(res) {
+	// if size is 0, then all tags are enabled
 
-	// Iterate over each tag in the tag_disabled map
-	// Check if the current tag is disabled, ie state is true or false
-	
-	for (const [tag, state] of tag_disabled) {
+	let new_res = res;
+
+	// Iterate over each tag in the tag_enabled map
+	// Check if the current tag is enabled, ie state is true or false
+
+	let is_enabled = false;
+
+	for (const [tag, state] of tag_enabled) {
 		if (state) {
-
-			// Filter the res array based on the disabled tag
-			// !r.tags.includes(tag) checks if the current resource's tags include the disabled tag. 
-			// If not, it returns true, keeping the resource in the filtered array.
-
-			res = res.filter((r) => !r.tags.includes(tag));
+			is_enabled = true;
+			// Filter the new_res array based on the enabled tag
+			// r.tags.includes(tag) checks if the current resource's tags include the enabled tag. 
+			// If yes, it returns true, keeping the resource in the filtered array.
+			new_res = new_res.filter((r) => r.tags.includes(tag));
 		}
 	}
-	return res;
+
+	// if no tags are enabled, then all tags are enabled
+	if (!is_enabled)
+		return res;
+
+	return new_res;
 }
 
 function sortResources(res) {
-
 	// depending upon the current sort_mode, extracted from sort_by html class
 	// sort the items in the res array using sort method of the array
 
@@ -128,7 +156,6 @@ function update() {
 }
 
 window.onload = async () => {
-
 	header();
 
 	try {
@@ -143,12 +170,11 @@ window.onload = async () => {
 
 	for (const r of resources) {
 		for (const t of r.tags) {
-
 			// check if the map has the tag
 			// if it doesnt, create the tag button and add tag in the map
-			if (!tag_disabled.has(t)) {
+			if (!tag_enabled.has(t)) {
 
-				tag_disabled.set(t, false);
+				tag_enabled.set(t, false);
 
 				// create tag button
 				// Eg: <span id="tag-btn">Chat</span>
@@ -159,8 +185,8 @@ window.onload = async () => {
 				// when tag button is clicked
 				// change the state of the "true/false value"
 				e.onclick = () => {
-					tag_disabled.set(t, tag_disabled.get(t) ? false : true);
-					e.classList.toggle("disabled");
+					tag_enabled.set(t, tag_enabled.get(t) ? false : true);
+					e.classList.toggle("enabled");
 					update();
 				};
 
@@ -180,5 +206,5 @@ window.onload = async () => {
 		update();
 	}
 
-	populate(resources);
+	update();
 };
