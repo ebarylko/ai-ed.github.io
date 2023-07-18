@@ -24,3 +24,17 @@ Which is an array of JavaScript Objects containing the following fields:
 - description
 - released (DD-MM-YYYY)
 - link
+
+## Local development
+
+### Requirements
+* Install [node](https://nodejs.org/en) using [nvm](https://github.com/nvm-sh/nvm)
+
+### Serving site on watch mode
+
+The following command will install [browsersync](https://browsersync.io/docs) and allow you to serve the site locally
+and will watch all the files and update the browser when things change
+
+* Run `npm install`
+
+* Run `npm run serve`
