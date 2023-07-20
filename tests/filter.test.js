@@ -30,4 +30,10 @@ describe('sortResources', () =>{
             expect(sortResources(items, "name")).toEqual(orderedByName)
         })
     })
+
+    describe('When using nothing to order', () => {
+        it("Does not change the order", () => {
+            expect(sortResources(items, "none")).toEqual(items)
+        })
+    })
 })
