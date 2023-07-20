@@ -1,5 +1,6 @@
 import { header } from "./ai-ed.js";
 
+
 const MONTHS = [
 	"January",
 	"February",
@@ -113,45 +114,32 @@ function filterResources(res) {
 	return new_res;
 }
 
-function sortResources(res) {
-	// depending upon the current sort_mode, extracted from sort_by html class
-	// sort the items in the res array using sort method of the array
-
-	// a and b represent two elements in the res array
-	// a.date represents [year, month] array
-	// new Date convert the date: [year, month] array into a date object
-
-	// for name, compare the values of the strings
-	// depending upon the string comparison, return -1,0,1 respectively
-
-	switch (sort_mode) {
-		case "newest":
-			res.sort(function(a, b){
-				return new Date(b.date) - new Date(a.date)
-			});
-			break;
-		case "oldest":
-			res.sort(function(a, b){
-				return new Date(a.date) - new Date(b.date)
-			});
-			break;
-		case "name":
-			res.sort(function(a, b){
-				return a.name < b.name ? -1 : (a.name > b.name ? 1 : 0);
-			});
-			break;
-		default:
-			break;
-	}
-	return res;
+function compareDate(a, b) {
+    return new Date(...b.date) - new Date(...a.date);
 }
 
-	
-function update() {
+
+/**
+ * Sorts a collection using the `sortMode`
+ * @param res a collection of elements of the form `{"name": String, "date": [Int, Int] }`
+ * @param sortMode a sorting trait (which can be "newest", "oldest", "name")
+ * @return a new collection sorted by `sortMode`
+ **/
+export function sortResources(res, sortMode) {
+    const orderBy = {
+        "newest": compareDate,
+        "oldest": (a, b) => compareDate(a, b) * -1,
+        "name": (a, b) => a.name.localeCompare(b.name)
+    }
+    const orderedRes = [...res];
+
+    return orderedRes.sort(orderBy[sortMode])
+}
+
+function update(sort_mode) {
 	let res = [...resources];
 	let filtered = filterResources(res);
-	let sorted_and_filtered = sortResources(filtered);
-	
+	  let sorted_and_filtered = sortResources(filtered, sort_mode);
 	populate(sorted_and_filtered);
 }
 
@@ -203,7 +191,7 @@ window.onload = async () => {
 	let sort_by = document.getElementById("sort-by");
 	sort_by.onchange = () => {
 		sort_mode = sort_by.value;
-		update();
+		update(sort_mode);
 	}
 
 	update();
