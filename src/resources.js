@@ -114,24 +114,17 @@ function filterResources(res) {
 	return new_res;
 }
 
-
-// depending upon the current sort_mode, extracted from sort_by html class
-// sort the items in the res array using sort method of the array
-
-// a and b represent two elements in the res array
-// a.date represents [year, month] array
-// new Date convert the date: [year, month] array into a date object
-
-// for name, compare the values of the strings
-// depending upon the string comparison, return -1,0,1 respectively
-
-// change function for newest so it returns functioon
-// change function for oldest so it returns negation of newest
-
 function compareDate(a, b) {
     return new Date(...b.date) - new Date(...a.date);
 }
 
+
+/**
+ * Sorts a collection using the `sortMode`
+ * @param res a collection of elements of the form `{"name": String, "date": [Int, Int] }`
+ * @param sortMode a sorting trait (which can be "newest", "oldest", "name")
+ * @return a new collection sorted by `sortMode`
+ **/
 export function sortResources(res, sortMode) {
     const orderBy = {
         "newest": compareDate,
