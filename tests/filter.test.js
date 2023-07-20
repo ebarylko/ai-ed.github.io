@@ -17,4 +17,17 @@ describe('sortResources', () =>{
             expect(sortResources(items, "newest")).toEqual(orderedByDateDesc)
         })
     })
+    describe('When using oldest to order', () => {
+        it("Sorts by oldest date first", () => {
+            const orderedByDateAsec = R.sortWith([R.ascend(R.prop("date"))], items)
+            expect(sortResources(items, "oldest")).toEqual(orderedByDateAsec)
+        })
+    })
+
+    describe('When using name to order', () => {
+        it("Sorts by name alphabetically", () => {
+            const orderedByName = R.sortBy(R.prop("name"), items);
+            expect(sortResources(items, "name")).toEqual(orderedByName)
+        })
+    })
 })
