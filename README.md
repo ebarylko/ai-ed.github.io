@@ -37,7 +37,7 @@ and will watch all the files and update the browser when things change
 
 * Run `npm install`
 
-* Run `npm run serve`
+* Run `npm run start`
 
 ### Testing
 * Run `npm run test` so the tests are continuously run. When you make any changes to the files which affect the tests and save, it will immediately show up on the test watch.
