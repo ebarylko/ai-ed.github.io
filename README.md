@@ -61,7 +61,7 @@ Note: for working on features it is a good idea to work on it in a separate bran
 
 A PR shows what feature was added and describes important changes to the code. 
 
-A PR can be [created](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/PRoposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=cli) in many ways. Pick the way which is most for you. After you create the PR you will receive the option to edit the title and body of the PR.
+A PR can be [created](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/PRoposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=cli) in many ways. Pick the way which is most convenient for you. After you create the PR you will receive the option to edit the title and body of the PR.
 
 The title of the PR should be the feature you are working on, while the body should describe the result of completing the feature and the changes made in the code.
 
