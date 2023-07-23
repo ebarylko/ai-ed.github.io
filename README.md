@@ -45,25 +45,21 @@ and will watch all the files and update the browser when things change
 
 ## Issue and pr ettiquete
 
-why are issues used. 
-the general structure of an issues
-making a branch to work on an issue
+The following sections will talk about how to make issues and prs.
 
 #### Issues
 
-Issues are a good way to show what feature is currently being worked and allows others to see what is needed for the feature to be declared as complete.
+Issues are a way to show what feature is currently being worked on and allows others to see what is needed for the feature to be declared as complete. To do this, a good title and description for the issue is needed.
 
-An issue has a title and a body.
-
-The title should describe the feature being worked on, while the body should describe what's possible as a result of completing the feature and what criteria the feature must comply with (acceptance criteria).
+The title should describe the feature being worked on, while the body of the issue should describe what's possible as a result of completing the feature and what criteria the feature must comply with (acceptance criteria).
 
 For the acceptance criteria, state exactly what the feature must do for it to be declared as complete. For example, If I were working on filtering items based on the tags they have, my criteria could be the following: When the user picks one or more tags to filter by, then only the items which contain the selected tags should appear.
 
-Note: for working on features it is a good idea to work on it in a separate branch. If a change is made in the new branch and everything suddenly stops working, that effect is isolated from the main branch. 
-
-To make a new branch run `git checkout -b [name of branch]`.
+Note: for working on features it is a good idea to work on it in a separate branch. If a change is made in the new branch and everything suddenly stops working, that effect is isolated from the main branch. To make a new branch run `git checkout -b [name of branch]`.
 
 ### Prs
+
+A pr shows what feature was added and describes important changes to the code. 
 
 To create a Pr, run `gh pr create`. After that you will receive options to edit the title and body of the pr.
 
