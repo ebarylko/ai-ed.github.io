@@ -58,7 +58,8 @@ function populate(res) {
 	// reset innerHTML of flex container
 	flex.innerHTML = "";
 
-	for (const r of res) {
+	for (let i = 0; i < res.length; i++) {
+		let r = res[i];
 		let tags = "Tags: ";
 		for (let i = 0; i < r.tags.length; i++)
 			tags += `${r.tags[i]}${i == r.tags.length - 1 ? "." : ", "}`;
@@ -74,12 +75,41 @@ function populate(res) {
 				<p>${r.blurb}</p>
 				<h4>${tags}</h4>
 				<div class="buttons">
-					<a class="visit" href="${r.link}">Visit &nearr;</a>
-					<a class="open" href="/resources.html?r=0">Learn More</a>
+					<a class="secondary-btn" href="${r.link}">Visit &nearr;</a>
+					<a class="primary-btn" href="/resources.html?r=${i}">Learn More</a>
 				</div>
 			</div>
 		`;
 	}
+}
+
+function populateSingle(res, r_id) {
+	let root = document.getElementById("root");
+	let r = res[r_id];
+	let tags = "Tags: ";
+
+	for (let i = 0; i < r.tags.length; i++)
+		tags += `${r.tags[i]}${i == r.tags.length - 1 ? "." : ", "}`;
+
+	root.innerHTML = `
+		<div class="col-resource">
+			<div class="resource">
+				<h1>${r.name}</h1>
+				${
+					r.affiliated == r.name ? "" :
+					"<h2>" + r.affiliated + "</h2>"
+				}
+				<h3>${MONTHS[r.date[1] - 1]} ${r.date[0]}</h3>
+				<p>${r.blurb}</p>
+				<h4>${tags}</h4>
+				<div class="buttons">
+					<a class="secondary-btn" href="${r.link}">Visit &nearr;</a>
+				</div>
+			</div>
+			<a class="primary-btn" href="/resources.html">Go Back</a>
+			<h4>If you know more about this resource, feel free to <a href="https://github.com/ai-ed">contribute</a> to AI-ED.</h4>
+		</div>
+	`;
 }
 
 let resources;
@@ -158,6 +188,15 @@ window.onload = async () => {
 		console.log("There was an error retrieving the database.");
 		return;
 	};
+
+	const params = new URLSearchParams(window.location.search);
+
+	if (params.has("r")) {
+		let r = parseInt(params.get("r"));
+
+		// update as per a single resource
+		populateSingle(resources, r);
+	}
 
 	let tags = document.getElementById("tags");
 
