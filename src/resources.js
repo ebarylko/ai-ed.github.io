@@ -27,6 +27,7 @@ const HEADERS = `
 `;
 */
 
+/*
 function getcol(seed) {
 	const sz = 64;
 	let cols = [0, 0, 0];
@@ -43,6 +44,7 @@ function getcol(seed) {
 
 	return col;
 }
+*/
 
 // res: array of resources
 // to see what a resource object contains, see resources.json
@@ -57,12 +59,12 @@ function populate(res) {
 	flex.innerHTML = "";
 
 	for (const r of res) {
-		let tags = "";
-		for (const t of r.tags)
-			tags += `<span class="tag">${t}</span>`;
+		let tags = "Tags: ";
+		for (let i = 0; i < r.tags.length; i++)
+			tags += `${r.tags[i]}${i == r.tags.length - 1 ? "." : ", "}`;
 
 		flex.innerHTML += `
-			<div class="resource" style="background-color: ${getcol(r.name)};">
+			<div class="resource">
 				<h1>${r.name}</h1>
 				${
 					r.affiliated == r.name ? "" :
@@ -70,8 +72,11 @@ function populate(res) {
 				}
 				<h3>${MONTHS[r.date[1] - 1]} ${r.date[0]}</h3>
 				<p>${r.blurb}</p>
-				<p>${tags}</p>
-				<a href="${r.link}">${r.name} &nearr;</a>
+				<h4>${tags}</h4>
+				<div class="buttons">
+					<a class="visit" href="${r.link}">Visit &nearr;</a>
+					<a class="open" href="/resources.html?r=0">Learn More</a>
+				</div>
 			</div>
 		`;
 	}
