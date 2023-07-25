@@ -2,7 +2,8 @@
     "type": "module",
     "scripts": {
         "start": "browser-sync start --server --files='**/*' ",
-        "test": "npx jest --watchAll"
+        "test:watch": "npx jest --watchAll",
+        "test": "npx jest"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.22.9",
