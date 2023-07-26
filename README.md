@@ -1,3 +1,6 @@
+
+The current state of the workflow ![test workflow](https://github.com/ai-ed/ai-ed.github.io/actions/workflows/test.yml/badge.svg)
+
 # ai-ed.github.io
 # AI Education Resources
 
@@ -91,4 +94,3 @@ To do this you need to do the following:
 
 After this you will either see a message that the tests passed or that they failed.
 
-![test workflow](https://github.com/ai-ed/ai-ed.github.io/actions/workflows/test.yml/badge.svg)
