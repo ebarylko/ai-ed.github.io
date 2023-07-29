@@ -3,3 +3,6 @@ instructions.md
 
 ## node
 node_modules/
+
+## webstorm
+.idea/

@@ -171,10 +171,10 @@ export function sortResources(res, sortMode) {
     return orderedRes.sort(orderBy[sortMode])
 }
 
-function update(sort_mode, filteredTags) {
-	let res = [...resources];
-	  let filtered = filterResources(res, filteredTags);
-	  let sorted_and_filtered = sortResources(filtered, sort_mode);
+function update() {
+    const res = [...resources];
+	  const filtered = filterResources(res, tag_enabled);
+	  const sorted_and_filtered = sortResources(filtered, sort_mode);
 	populate(sorted_and_filtered);
 }
 
@@ -219,7 +219,7 @@ window.onload = async () => {
 				e.onclick = () => {
 					tag_enabled.set(t, tag_enabled.get(t) ? false : true);
 					e.classList.toggle("enabled");
-					update(tag_enabled);
+					update();
 				};
 
 				// add tag button to the div with id tags
@@ -235,7 +235,7 @@ window.onload = async () => {
 	let sort_by = document.getElementById("sort-by");
 	sort_by.onchange = () => {
 		sort_mode = sort_by.value;
-		update(sort_mode);
+		update();
 	}
 
 	update();
