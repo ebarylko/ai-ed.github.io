@@ -50,13 +50,14 @@ describe('filterResources', () =>{
     describe('When filtering by a collection of tags', () => {
         it.each([
             [["1"], [["1", true], ["2", false], ["3", false], ["4", false]]],
-            [["2", "3"], [["1", false], ["2", true], ["3", false], ["4", false]]]
+            [["2", "3"], [["1", false], ["2", true], ["3", true], ["4", false]]],
+            [["2", "1"], [["1", true], ["2", true], ["3", false], ["4", false]]]
         ])
         ("Returns every tool with those tags", (filter, tags) => {
             const filteredTags = R.map((tag) => R.includes(tag), filter)
-            const hasTagsWithOne = R.allPass(filteredTags)
-            const toolsWithOne = R.filter(R.compose(hasTagsWithOne, R.prop('tags')), taggedItems) 
+            const hasTags = R.allPass(filteredTags)
+            const toolsWithTags = R.filter(R.compose(hasTags, R.prop('tags')), taggedItems) 
             const tagsToFilterBy = new Map(tags)
-            expect(filterResources(taggedItems, tagsToFilterBy)).toEqual(toolsWithOne)
+            expect(filterResources(taggedItems, tagsToFilterBy)).toEqual(toolsWithTags)
         })
     })})
