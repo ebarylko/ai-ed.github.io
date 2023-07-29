@@ -219,7 +219,7 @@ window.onload = async () => {
 				e.onclick = () => {
 					tag_enabled.set(t, tag_enabled.get(t) ? false : true);
 					e.classList.toggle("enabled");
-					update();
+					update(tag_enabled);
 				};
 
 				// add tag button to the div with id tags
