@@ -1,6 +1,5 @@
 import { header } from "./ai-ed.js";
 
-
 const MONTHS = [
 	"January",
 	"February",
@@ -122,9 +121,10 @@ let tag_enabled = new Map();
 // newest, oldest, name (alphabetical)
 let sort_mode = "newest";
 
-function filterResources(res) {
+export function filterResources(res, tag_enabled) {
 	// if size is 0, then all tags are enabled
 
+    
 	let new_res = res;
 
 	// Iterate over each tag in the tag_enabled map
@@ -171,9 +171,9 @@ export function sortResources(res, sortMode) {
     return orderedRes.sort(orderBy[sortMode])
 }
 
-function update(sort_mode) {
+function update(sort_mode, filteredTags) {
 	let res = [...resources];
-	let filtered = filterResources(res);
+	  let filtered = filterResources(res, filteredTags);
 	  let sorted_and_filtered = sortResources(filtered, sort_mode);
 	populate(sorted_and_filtered);
 }

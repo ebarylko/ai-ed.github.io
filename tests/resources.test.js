@@ -1,5 +1,5 @@
 const R = require('ramda');
-const  {sortResources} = require('../src/resources') 
+const  {sortResources, filterResources} = require('../src/resources') 
 
 const items = [
     {"name": "a", "date": [2021, 3]},
@@ -40,13 +40,6 @@ describe('sortResources', () =>{
 
 
 
-const taggedItems = [
-    {"name": "a", "tags": ["1", "2"]},
-    {"name": "bell", "tags": ["1", "3"]},
-    {"name": "emil", "tags": ["1"]},
-    {"name": "abe",  "tags": ["1", "4"]},
-    {"name": "crane", "tags": ["2"]}
-];
 
 
 function isIncluded(tag, item) {
@@ -54,24 +47,45 @@ function isIncluded(tag, item) {
 }
 
 function hasTags(tags, item) {
-    isWithin = R.partialRight(isIncluded, item);
+    console.log(item.tags)
+    isWithin = R.partialRight(isIncluded, item.tags);
     return R.all(isWithin, tags);
 }
 
 describe('filterResources', () =>{
-    describe('When filtering by a common tag', () => {
-        it("Returns every tool with that tag", () => {
-            const hasTagsWithOne = R.partial(hasTags, ["1"])
-            const toolsWithOne = R.filter(hasTagsWithOne, items)
-            expect(1).toEqual(toolsWithOne)
+    const taggedItems = [
+        {"name": "a", "tags": ["1", "2"]},
+        {"name": "bell", "tags": ["1", "3"]},
+        {"name": "emil", "tags": ["1"]},
+        {"name": "abe",  "tags": ["1", "4"]},
+        {"name": "crane", "tags": ["2"]}
+    ];
+    describe('When filtering by a collection of tags', () => {
+        it.each([
+            [["1"], [["1", true], ["2", false], ["3", false], ["4", false]]]
+            // [["1", "2"], [["1", true], ["2", true], ["3", false], ["4", false]]]
+
+        ])("Returns every tool with those tags", (filter, tags) => {
+            const filteredTags = R.map((tag) => R.includes(tag), filter)
+            const hasTagsWithOne = R.allPass(filteredTags)
+            const toolsWithOne = R.filter(R.compose(hasTagsWithOne, R.prop('tags')), taggedItems) 
+            const tagsToFilterBy = new Map(tags)
+            expect(filterResources(taggedItems, tagsToFilterBy)).toEqual(toolsWithOne)
         })
+        // it("Returns every tool with that tag", () => {
+        //     const toolsWithOne = R.filter(R.compose(R.includes("1"), R.prop('tags')), taggedItems) 
+        //     const tagsToFilterBy = new Map([["1", true], ["2", false], ["3", false], ["4", false]])
+        //     expect(filterResources(taggedItems, tagsToFilterBy)).toEqual(toolsWithOne)
+        // })
     })
-//     describe('When filtering by a unique set of tags', () => {
-//         it("Returns the sole tool with those tags", () => {
-//             const orderedByDateAsec = R.sortWith([R.ascend(R.prop("date"))], items)
-//             expect(sortResources(items, "oldest")).toEqual(orderedByDateAsec)
-//         })
-//     })
+
+    // describe('When filtering by a unique set of tags', () => {
+    //     it("Returns the sole tool with those tags", () => {
+    //         const toolsWithOneAndTwo = R.filter(R.compose(R.includes("2"), R.includes("1"), R.prop('tags')), taggedItems)
+    //         const tagsToFilterBy = new Map([["1", true], ["2", true], ["3", false], ["4", false]])
+    //         expect(filterResources(taggedItems, tagsToFilterBy)).toEqual(toolsWithOneAndTwo)
+    //     })
+    // })
 
 //     describe('When filtering by a tag which no tool has', () => {
 //         it("Returns an empty collection", () => {
