@@ -1,5 +1,5 @@
 const R = require('ramda');
-const  {sortResources} = require('../src/resources') 
+const  {sortResources, filterResources} = require('../src/resources') 
 
 const items = [
     {"name": "a", "date": [2021, 3]},
@@ -37,3 +37,27 @@ describe('sortResources', () =>{
         })
     })
 })
+
+
+describe('filterResources', () =>{
+    const taggedItems = [
+        {"name": "a", "tags": ["1", "2"]},
+        {"name": "bell", "tags": ["1", "3"]},
+        {"name": "emil", "tags": ["1"]},
+        {"name": "abe",  "tags": ["1", "4"]},
+        {"name": "crane", "tags": ["2"]}
+    ];
+    describe('When filtering by a collection of tags', () => {
+        it.each([
+            [["1"], [["1", true], ["2", false], ["3", false], ["4", false]]],
+            [["2", "3"], [["1", false], ["2", true], ["3", true], ["4", false]]],
+            [["2", "1"], [["1", true], ["2", true], ["3", false], ["4", false]]]
+        ])
+        ("Returns every tool with those tags", (filter, tags) => {
+            const filteredTags = R.map((tag) => R.includes(tag), filter)
+            const hasTags = R.allPass(filteredTags)
+            const toolsWithTags = R.filter(R.compose(hasTags, R.prop('tags')), taggedItems) 
+            const tagsToFilterBy = new Map(tags)
+            expect(filterResources(taggedItems, tagsToFilterBy)).toEqual(toolsWithTags)
+        })
+    })})
