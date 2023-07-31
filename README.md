@@ -1,3 +1,6 @@
+
+The current state of the workflow ![test workflow](https://github.com/ai-ed/ai-ed.github.io/actions/workflows/test.yml/badge.svg)
+
 # ai-ed.github.io
 # AI Education Resources
 
@@ -79,3 +82,15 @@ After you finish editing the title and body, submit the PR.
 * Use NIT to indicate the comment is a suggestion but not a must
 * Use Squash option when merging
 * Delete the branch afterwards
+
+
+## Checking the Github action locally
+
+Instead of doing a PR and checking the result of the workflow then, you can run the workflow locally to confirm it works before making the PR.
+
+To do this you need to do the following:
+* Install [act](https://github.com/nektos/act). 
+* Run `act pull_request`
+
+After this you will either see a message that the tests passed or that they failed.
+
