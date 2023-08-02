@@ -3,7 +3,8 @@
     "scripts": {
         "start": "browser-sync start --server --files='**/*' ",
         "test:watch": "npx jest --watchAll",
-        "test": "npx jest"
+        "test": "npx jest",
+        "acceptance": "cd tests && npx cypress run"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.22.9",
