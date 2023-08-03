@@ -43,8 +43,21 @@ and will watch all the files and update the browser when things change
 * Run `npm run start`
 
 ### Testing
+
+#### Unit tests
 * Run `npm run test` so the tests are continuously run. When you make any changes to the files which affect the tests and save, it will immediately show up on the test watch.
  
+
+#### Acceptance testing
+* Run `npm run acceptance` so the cypress tests are run.
+
+For every test there will be a video of what occurred, capturing what happened from when the user goes to the landing page to when the the test has finished.
+
+Every test will also save a screenshot of the website’s current appearance at the end of the test.
+
+To view the screenshot/video for a test,
+Run `open tests/cypress/[screenshot or video]/[test name]`
+
 
 ## Creating issues and PRs
 
