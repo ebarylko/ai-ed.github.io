@@ -1,5 +1,30 @@
 import * as R from "ramda";
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const monthNameToNum = R.zipObj(months, R.range(1, 13));
+
+function nameToMonth(name) {
+  return monthNameToNum[name];
+}
+
+function revertDate(date) {
+  const [month, year] = R.split(" ", date);
+  return [parseInt(year), nameToMonth(month)];
+}
 /**
  * Extracts all the tools on the resources page
  */
@@ -13,6 +38,7 @@ function parseToolsFromPage() {
           R.take(5),
           R.map(R.prop("innerText")),
           R.zipObj(["name", "affiliated", "date", "blurb", "tags"]),
+          (tools) => R.evolve({ date: revertDate }, tools),
         )(e.children);
       }),
     )(elems);
@@ -43,6 +69,7 @@ describe("Resources page", () => {
       cy.visit("http://localhost:3000/");
       cy.get('[data-testid="resources"]').click();
       const tools = parseToolsFromPage();
+      const parsedTools = tools;
       tools.should("deep.eq", 1);
     });
   });
