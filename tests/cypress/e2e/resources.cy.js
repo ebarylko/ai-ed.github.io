@@ -45,7 +45,9 @@ function parseToolsFromPage() {
   });
 }
 
-const notEmpty = R.complement(R.isEmpty);
+function prepareTools(tools) {
+  return R.map(R.pipe(R.dissoc("link"), R.dissoc("description")), tools);
+}
 
 describe("Resources page", () => {
   describe("When loading the page", () => {
@@ -69,8 +71,8 @@ describe("Resources page", () => {
       cy.visit("http://localhost:3000/");
       cy.get('[data-testid="resources"]').click();
       const tools = parseToolsFromPage();
-      const parsedTools = tools;
-      tools.should("deep.eq", 1);
+      const expectedTools = prepareTools(expected);
+      tools.should("deep.eq", expectedTools);
     });
   });
 });
