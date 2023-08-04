@@ -21,19 +21,32 @@ function nameToMonth(name) {
   return monthNameToNum[name];
 }
 
+/**
+ * takes a date and returns the numerical representation of it
+ * @param date a string of the form "[month-name], year"
+ * @returns a collection of the form [year, [month-value]]
+ */
 function revertDate(date) {
   const [month, year] = R.split(" ", date);
   return [parseInt(year), nameToMonth(month)];
 }
 
-function wrapTags(dates) {
+const noCommas = R.pipe(R.split(","), R.head);
+const noPeriods = R.pipe(R.split("."), R.head);
+
+/**
+ * Takes the tags and returns them formatted differently
+ * @param tags a string representing all the tags for a tool
+ * @returns a collection of all the tags
+ */
+function wrapTags(tags) {
   return R.pipe(
     R.split(" "),
     R.drop(1),
     R.without([","]),
-    R.map(R.pipe(R.split(","), R.head)),
-    R.map(R.pipe(R.split("."), R.head)),
-  )(dates);
+    R.map(noCommas),
+    R.map(noPeriods),
+  )(tags);
 }
 
 /**
@@ -49,7 +62,7 @@ function parseToolsFromPage() {
           R.take(5),
           R.map(R.prop("innerText")),
           R.zipObj(["name", "affiliated", "date", "blurb", "tags"]),
-          (tools) => R.evolve({ date: revertDate }, tools),
+          R.evolve({ date: revertDate }),
           R.evolve({ tags: wrapTags }),
         )(e.children);
       }),
@@ -91,9 +104,9 @@ describe("Resources page", () => {
       });
       cy.visit("http://localhost:3000/");
       cy.get('[data-testid="resources"]').click();
-      const tools = parseToolsFromPage();
+      const actualTools = parseToolsFromPage();
       const expectedTools = prepareTools(expected);
-      tools.should("deep.eq", expectedTools);
+      actualTools.should("deep.eq", expectedTools);
     });
   });
 });
