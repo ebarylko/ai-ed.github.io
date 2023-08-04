@@ -32,6 +32,7 @@ function wrapTags(dates) {
     R.drop(1),
     R.without([","]),
     R.map(R.pipe(R.split(","), R.head)),
+    R.map(R.pipe(R.split("."), R.head)),
   )(dates);
 }
 
@@ -73,6 +74,15 @@ describe("Resources page", () => {
           blurb: "A chat application using OpenAI's GPT LLM.",
           description:
             "An online chat application utilizing OpenAI's GPT large language model (LLM) to understand user inputs and generate outputs.",
+        },
+        {
+          name: "DALL-E",
+          affiliated: "OpenAI",
+          date: [2022, 4],
+          tags: ["Research", "Students", "Teachers"],
+          link: "https://labs.openai.com/",
+          blurb: "An image generation application by OpenAI.",
+          description: "An image generation application by OpenAI.",
         },
       ];
       cy.intercept("GET", "/resources.json", {
