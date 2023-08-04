@@ -35,5 +35,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
+      - name: Run unit tests
         run: npm run test
+
+      - name: Run acceptance tests
+        run: |
+          apt-get update
+          apt-get install xvfb 
+          npm run acceptance

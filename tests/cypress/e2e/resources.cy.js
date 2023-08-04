@@ -17,6 +17,11 @@ const months = [
 
 const monthNameToNum = R.zipObj(months, R.range(1, 13));
 
+/**
+ * Takes the name of a month and returns the numerical value of the month
+ * @param name a string representing the name of the month
+ * @returns an integer representing the numerical value of the month
+ */
 function nameToMonth(name) {
   return monthNameToNum[name];
 }
@@ -70,6 +75,11 @@ function parseToolsFromPage() {
   });
 }
 
+/**
+ * Takes the tools and removes the link and description from each one
+ * @param tools a collection of tools
+ * @returns a collection of tools with each one lacking a link and a description
+ */
 function prepareTools(tools) {
   return R.map(R.pipe(R.dissoc("link"), R.dissoc("description")), tools);
 }
@@ -110,5 +120,3 @@ describe("Resources page", () => {
     });
   });
 });
-/*
-    [expected.name, expected.affiliated, date, expected.blurb, expected.tags]*/
