@@ -1,13 +1,18 @@
+import * as R from "ramda";
+
 /**
  * Extracts all the tools on the resources page
  */
 function parseToolsFromPage() {
 return cy.get('.resource')
     .then((elems) => {
-        return Array.from(elems).map(el => el.innerText)
+        return R.pipe(Array.from, R.map(e => {
+            return R.pipe(Array.from, R.take(5), R.map(R.prop("innerText")))(e.children)
+        }))(elems)
     })
 }
 
+const notEmpty = R.complement(R.isEmpty)
 
 describe('Resources page', () => {
     describe('When loading the page', () => {
@@ -27,8 +32,10 @@ describe('Resources page', () => {
             })
             cy.visit("http://localhost:3000/")
             cy.get('[data-testid="resources"]').click()
-            const actual = parseToolsFromPage()
-            actual.should('deep.eq', ["hello"])
+            const tools = parseToolsFromPage()
+            tools.should('deep.eq', 1 )
         })
     })
 })
+/*
+    [expected.name, expected.affiliated, date, expected.blurb, expected.tags]*/
