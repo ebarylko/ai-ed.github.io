@@ -25,6 +25,16 @@ function revertDate(date) {
   const [month, year] = R.split(" ", date);
   return [parseInt(year), nameToMonth(month)];
 }
+
+function wrapTags(dates) {
+  return R.pipe(
+    R.split(" "),
+    R.drop(1),
+    R.without([","]),
+    R.map(R.pipe(R.split(","), R.head)),
+  )(dates);
+}
+
 /**
  * Extracts all the tools on the resources page
  */
@@ -39,6 +49,7 @@ function parseToolsFromPage() {
           R.map(R.prop("innerText")),
           R.zipObj(["name", "affiliated", "date", "blurb", "tags"]),
           (tools) => R.evolve({ date: revertDate }, tools),
+          R.evolve({ tags: wrapTags }),
         )(e.children);
       }),
     )(elems);
