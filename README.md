@@ -53,7 +53,7 @@ and will watch all the files and update the browser when things change
 
 For every test there will be a video of what occurred, capturing what happened from when the user goes to the landing page to when the the test has finished.
 
-Every test will also save a screenshot of the website’s current appearance at the end of the test.
+If the test failed, a screenshot of the website’s appearance at the end of the test will be taken.
 
 To view the screenshot/video for a test,
 run `open tests/cypress/[screenshot or video]/[test name]`
