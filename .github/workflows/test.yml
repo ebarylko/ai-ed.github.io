@@ -44,3 +44,12 @@ jobs:
           export LIBVA_DRIVER_NAME=electron
           npm run start:acceptance &
           npm run acceptance
+
+      - name: Upload screenshots and videos from acceptance tests
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: acceptance-test-artifacts
+          path: |
+            tests/cypress/screenshots
+            tests/cypress/videos
