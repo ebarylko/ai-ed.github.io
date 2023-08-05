@@ -56,7 +56,7 @@ For every test there will be a video of what occurred, capturing what happened f
 Every test will also save a screenshot of the website’s current appearance at the end of the test.
 
 To view the screenshot/video for a test,
-Run `open tests/cypress/[screenshot or video]/[test name]`
+run `open tests/cypress/[screenshot or video]/[test name]`
 
 
 ## Creating issues and PRs
