@@ -41,6 +41,8 @@ jobs:
 
       - name: Run acceptance tests
         run: |
+          export LIBVA_DRIVER_NAME=electron
           apt-get update
-          apt-get install xvfb 
+          apt-get install xvfb
+          npm run start &
           npm run acceptance
