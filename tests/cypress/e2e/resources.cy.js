@@ -75,13 +75,15 @@ function parseToolsFromPage() {
   });
 }
 
+const removeLinkAndDescription =  R.pipe(R.dissoc("link"), R.dissoc("description"))
+
 /**
  * Takes the tools and removes the link and description from each one
  * @param tools a collection of tools
  * @returns a collection of tools with each one lacking a link and a description
  */
 function prepareTools(tools) {
-  return R.map(R.pipe(R.dissoc("link"), R.dissoc("description")), tools);
+    return R.map(removeLinkAndDescription, tools);
 }
 
 describe("Resources page", () => {
