@@ -5,6 +5,7 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
+    container: cypress/included:latest
     steps:
 
       - name: Checkout
