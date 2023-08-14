@@ -5,13 +5,15 @@
         "start:acceptance": "browser-sync start --no-open --server --files='**/*'",
         "test:watch": "npx jest --watchAll",
         "test": "npx jest",
-        "acceptance": "cd tests && npx cypress run"
+        "acceptance": "cd tests && npx cypress run",
+        "act:pr": "act pull_request --artifact-server-path /tmp/artifacts"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.22.9",
         "babel-jest": "^29.6.1",
         "browser-sync": "^2.29.3",
         "cypress": "^12.17.3",
+        "fast-check": "^3.12.0",
         "jest": "^29.6.1",
         "jest-environment-jsdom": "^29.6.1",
         "jsdom": "^22.1.0",
