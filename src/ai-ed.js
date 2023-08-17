@@ -20,7 +20,6 @@ const headerView = `
     </div>
     </nav>
 
-
 `;
 
 
