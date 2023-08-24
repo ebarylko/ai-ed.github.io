@@ -8,3 +8,5 @@ group :development do
   gem "foreman"
 end
 
+
+gem "jekyll", "~> 4.3"
