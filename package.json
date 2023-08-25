@@ -1,7 +1,7 @@
 {
     "type": "module",
     "scripts": {
-        "start": "browser-sync start --server --files='**/*'",
+        "start": "bundle exec foreman start",
         "start:acceptance": "browser-sync start --no-open --server --files='**/*'",
         "build:watch": "webpack --watch",
         "build": "webpack",
