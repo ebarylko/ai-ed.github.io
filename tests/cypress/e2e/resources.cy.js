@@ -122,7 +122,7 @@ describe("Resources page", () => {
             statusCode: 200,
             body: expected,
           });
-          cy.visit("http://localhost:3000/");
+          cy.visit("http://localhost:4001/");
           cy.get('[data-testid="resources"]').click();
           const actualTools = parseToolsFromPage();
           const expectedTools = prepareTools(expected);
