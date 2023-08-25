@@ -36,14 +36,13 @@ jobs:
       - name: Install node dependencies
         run: npm install
 
-
-      - name: Install ruby dependencies
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
       - name: Run webpack
         run: npm run build
+
+      - name: Build Jekyll artifacts
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: website
 
       - name: Run unit tests
         run: npm run test
@@ -51,7 +50,7 @@ jobs:
       - name: Run acceptance tests
         run: |
           export LIBVA_DRIVER_NAME=electron
-          npm run start &
+          npm run start:acceptance &
           npm run acceptance
 
       - name: Upload screenshots and videos from acceptance tests

@@ -2,6 +2,8 @@ import * as Handlebars from "handlebars";
 import * as R from "ramda";
 import * as fc from "fast-check";
 
+
+
 const months = [
   "January",
   "February",
@@ -113,6 +115,8 @@ const toolArb = fc.record({
  */
 const toolListArb = fc.array(toolArb, { minLength: 1, maxLength: 5 });
 
+const home = "http://localhost:3000/"
+
 describe("Resources page", () => {
   describe("When loading the page", () => {
     it("Displays all the tools", () => {
@@ -122,7 +126,7 @@ describe("Resources page", () => {
             statusCode: 200,
             body: expected,
           });
-          cy.visit("http://localhost:4001/");
+          cy.visit(home);
           cy.get('[data-testid="resources"]').click();
           const actualTools = parseToolsFromPage();
           const expectedTools = prepareTools(expected);
