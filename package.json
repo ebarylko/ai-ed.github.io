@@ -2,7 +2,7 @@
     "type": "module",
     "scripts": {
         "start": "bundle exec foreman start",
-        "start:acceptance": "browser-sync start --no-open --server --files='**/*'",
+        "start:acceptance": "browser-sync start --no-open --s '_site' --f='_site'",
         "build:watch": "webpack --watch",
         "build": "webpack",
         "test:watch": "npx jest --watchAll",
