@@ -1,2 +1,2 @@
 webpack-watch: npx webpack --watch
-jekyll: jekyll serve --trace
+jekyll: bundle exec jekyll s -l

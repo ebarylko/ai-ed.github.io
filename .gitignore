@@ -13,3 +13,6 @@ tests/cypress/screenshots/
 
 ## Jekyll
 _site
+
+## Mac files 
+.DS_Store
