@@ -31,15 +31,28 @@ Which is an array of JavaScript Objects containing the following fields:
 ## Local development
 
 
-* If you want to view changes made to the site or execute acceptance tests, run `npm run build:watch` to have `webpack` continuously compile the files. The site and tests will then use the newest compiled files.
+* If you want to view changes made to the site or execute acceptance tests, run `npm run start` to have `webpack` continuously compile the files. The site and tests will then use the newest compiled files.
 
 
 ### Requirements
+
 * Install [node](https://nodejs.org/en) using [nvm](https://github.com/nvm-sh/nvm)
+* Install [ruby](https://www.ruby-lang.org/en/) using [rbenv](https://github.com/rbenv/rbenv)
+* Install [bundler](https://bundler.io/) by running `gem install bundler`
 
 ### Serving site on watch mode
 
-The following command will install [browsersync](https://browsersync.io/docs) and allow you to serve the site locally
+The following commands will install the node and ruby dependencies.
+
+* Run `npm install`
+* Run `bundle`
+
+One of the ruby dependencies is [Jekyll](https://jekyllrb.com/), a static site generator. It will be used to serve the site locally at port 4001 and will update the browser when any changes are made to the files.
+
+To serve the site, run `npm run start`
+
+
+[browsersync](https://browsersync.io/docs) and and allow you to serve the site locally
 and will watch all the files and update the browser when things change
 
 * Run `npm install`
@@ -49,7 +62,9 @@ and will watch all the files and update the browser when things change
 ### Testing
 
 #### Unit tests
-* Run `npm run test` so the tests are continuously run. When you make any changes to the files which affect the tests and save, it will immediately show up on the test watch.
+* Run `npm run test:watch` so the [jest](https://jestjs.io/) tests are continuously run. When you make any changes to the files which affect the tests and save, it will immediately show up on the test watch.
+* If you only want the tests to be executed once, run `npm run test`
+
 
 #### Acceptance testing
 * Run `npm run acceptance` so the cypress tests are run.
@@ -60,7 +75,6 @@ If the test failed, a screenshot of the website’s appearance at the end of the
 
 To view the screenshot/video for a test,
 run `open tests/cypress/[screenshot or video]/[test name]`
-
 
 ## Creating issues and PRs
 
