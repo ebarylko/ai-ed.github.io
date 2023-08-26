@@ -30,9 +30,7 @@ Which is an array of JavaScript Objects containing the following fields:
 
 ## Local development
 
-
-* If you want to view changes made to the site or execute acceptance tests, run `npm run start` to have `webpack` continuously compile the files. The site and tests will then use the newest compiled files.
-
+* If you want to view changes made to the site or execute acceptance tests, run `npm run start` beforehand. This will cause [webpack](https://webpack.js.org/) to continuously compile the files and have [Jekyll](https://jekyllrb.com/) (a static site generator) serve those files.
 
 ### Requirements
 
@@ -47,27 +45,19 @@ The following commands will install the node and ruby dependencies.
 * Run `npm install`
 * Run `bundle`
 
-One of the ruby dependencies is [Jekyll](https://jekyllrb.com/), a static site generator. It will be used to serve the site locally at port 4001 and will update the browser when any changes are made to the files.
-
-To serve the site, run `npm run start`
-
-
-[browsersync](https://browsersync.io/docs) and and allow you to serve the site locally
-and will watch all the files and update the browser when things change
-
-* Run `npm install`
+The next command will serve the site using _Jekyll_ at `http://localhost:3000/` and will update the browser when any changes are made.
 
 * Run `npm run start`
 
 ### Testing
 
 #### Unit tests
+
 * Run `npm run test:watch` so the [jest](https://jestjs.io/) tests are continuously run. When you make any changes to the files which affect the tests and save, it will immediately show up on the test watch.
 * If you only want the tests to be executed once, run `npm run test`
 
-
 #### Acceptance testing
-* Run `npm run acceptance` so the cypress tests are run.
+* Run `npm run acceptance` so the [cypress](https://www.cypress.io/) tests are run.
 
 For every test there will be a video of what occurred, capturing what happened from when the user goes to the landing page to when the the test has finished.
 
