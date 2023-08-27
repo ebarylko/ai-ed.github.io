@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>AI-ED Resources</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+		<link rel="stylesheet" href="static/ai-ed.css" >
+		<link rel="icon" type="image/svg" href="static/ai-ed.svg" />
+		<meta name="charset" content="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="dist/main.js"></script>
+	</head>
+	<body>
+      <div id="main-wrap" class="is-flex  is-flex-direction-column ">
+    <nav class="level filters">
+                    <div class="filter level-item">
+                <div class="tag is-size-6"> Sort by </div>
+                          <select name="sort-by" id="sort-by">
+                                <option value="newest">Newest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="name">Name</option>
+                          </select>
+                </div>
+                        <div class="filter level-item">
+                          <p class="has-text-centered">Filter by</p>
+                          <div id="tags"></div>
+                </div>
+                      <div class="level-item">
+                          <p id="info"></p>
+                </div>
+    </nav>
+    <div id="root" class="cols">
+      <div id="resources" class="col-resources">
+</div>
+  </div>
+    </div>
+
+      <script>
+
+       function activateMenu() {
+           const navBurger = document.getElementById("nav-burger");
+           const navbarMenu = document.getElementById("menu");
+           navBurger.classList.toggle("is-active");
+           navbarMenu.classList.toggle("is-active");
+       }
+      </script>
+
+	</body>
+</html>

@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>AI-ED Resources</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+		<link rel="stylesheet" href="static/ai-ed.css" >
+		<link rel="icon" type="image/svg" href="static/ai-ed.svg" />
+		<meta name="charset" content="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="dist/main.js"></script>
+	</head>
+	<body>
+      <div id="main-wrap" class="is-flex  is-flex-direction-column ">
+        <section class="container is-flex is-flex-grow-1 ai-ed">
+        <div class="welcome-container is-align-self-center has-text-centered">
+                      <div class="welcome-msg title"> Welcome to AI-ED</div>
+                      <h2 class="subtitle is-4 pt-4"> AI resources for academic use</h2>
+                <div class="has-text-centered">
+                      <p>
+                            This website is a repository for AI resources
+                            available for academic use
+                      </p>
+                <p> Please go to the <a data-testid="resources" href="/resources.html"> Resources </a> page for listed tools </p>
+                </div>
+        </div>
+    </section>
+</div>
+
+      <script>
+
+       function activateMenu() {
+           const navBurger = document.getElementById("nav-burger");
+           const navbarMenu = document.getElementById("menu");
+           navBurger.classList.toggle("is-active");
+           navbarMenu.classList.toggle("is-active");
+       }
+      </script>
+
+	</body>
+</html>
