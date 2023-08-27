@@ -10,3 +10,9 @@ node_modules/
 ## cypress
 tests/cypress/videos/
 tests/cypress/screenshots/
+
+## Jekyll
+_site
+
+## Mac files 
+.DS_Store

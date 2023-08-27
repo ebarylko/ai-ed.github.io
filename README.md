@@ -30,29 +30,34 @@ Which is an array of JavaScript Objects containing the following fields:
 
 ## Local development
 
-
-* If you want to view changes made to the site or execute acceptance tests, run `npm run build:watch` to have `webpack` continuously compile the files. The site and tests will then use the newest compiled files.
-
+* If you want to view changes made to the site or execute acceptance tests, run `npm run start` beforehand. This will cause [webpack](https://webpack.js.org/) to continuously compile the files and have [Jekyll](https://jekyllrb.com/) (a static site generator) serve those files.
 
 ### Requirements
+
 * Install [node](https://nodejs.org/en) using [nvm](https://github.com/nvm-sh/nvm)
+* Install [ruby](https://www.ruby-lang.org/en/) using [rbenv](https://github.com/rbenv/rbenv)
+* Install [bundler](https://bundler.io/) by running `gem install bundler`
 
 ### Serving site on watch mode
 
-The following command will install [browsersync](https://browsersync.io/docs) and allow you to serve the site locally
-and will watch all the files and update the browser when things change
+The following commands will install the node and ruby dependencies.
 
 * Run `npm install`
+* Run `bundle`
+
+The next command will serve the site using _Jekyll_ at `http://localhost:3000/` and will update the browser when any changes are made.
 
 * Run `npm run start`
 
 ### Testing
 
 #### Unit tests
-* Run `npm run test` so the tests are continuously run. When you make any changes to the files which affect the tests and save, it will immediately show up on the test watch.
+
+* Run `npm run test:watch` so the [jest](https://jestjs.io/) tests are continuously run. When you make any changes to the files which affect the tests and save, it will immediately show up on the test watch.
+* If you only want the tests to be executed once, run `npm run test`
 
 #### Acceptance testing
-* Run `npm run acceptance` so the cypress tests are run.
+* Run `npm run acceptance` so the [cypress](https://www.cypress.io/) tests are run.
 
 For every test there will be a video of what occurred, capturing what happened from when the user goes to the landing page to when the the test has finished.
 
@@ -60,7 +65,6 @@ If the test failed, a screenshot of the website’s appearance at the end of the
 
 To view the screenshot/video for a test,
 run `open tests/cypress/[screenshot or video]/[test name]`
-
 
 ## Creating issues and PRs
 

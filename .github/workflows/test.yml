@@ -33,11 +33,16 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
 
 
-      - name: Install dependencies
+      - name: Install node dependencies
         run: npm install
 
       - name: Run webpack
         run: npm run build
+
+      - name: Build Jekyll artifacts
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: website
 
       - name: Run unit tests
         run: npm run test
